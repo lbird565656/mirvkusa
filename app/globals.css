@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+:root {
+  --background: 34 33% 97%;
+  --foreground: 20 14% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14% 10%;
+  --muted: 30 25% 94%;
+  --muted-foreground: 20 8% 40%;
+  --border: 24 17% 88%;
+  --ring: 28 95% 56%;
+  --primary: 28 95% 56%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 28 100% 96%;
+  --accent-foreground: 24 30% 18%;
+  --success: 142 52% 38%;
+  --warning: 35 92% 52%;
+  --danger: 0 72% 55%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(255, 145, 0, 0.08), transparent 28%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(255, 145, 0, 0.18);
+}
+
+@layer components {
+  .container-shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 72rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-shell {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  .surface {
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    background: white;
+    box-shadow: 0 8px 30px rgba(15, 15, 15, 0.04);
+  }
+
+  .surface-muted {
+    border: 1px solid hsl(var(--border));
+    border-radius: 1rem;
+    background: hsl(var(--muted));
+  }
+
+  .section-block {
+    padding-block: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-block {
+      padding-block: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    color: hsl(var(--primary));
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .heading-balance {
+    text-wrap: balance;
+  }
+
+  .text-muted {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    background: hsl(var(--primary));
+    padding-inline: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--primary-foreground));
+    transition:
+      transform 150ms ease,
+      box-shadow 150ms ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(255, 145, 0, 0.18);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    background: white;
+    padding-inline: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(var(--foreground));
+    transition: background-color 150ms ease;
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--muted));
+  }
+
+  .btn-secondary:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  .badge-soft {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 9999px;
+    background: hsl(var(--accent));
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: hsl(var(--accent-foreground));
+  }
+
+  .input-base {
+    height: 3rem;
+    width: 100%;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    background: white;
+    padding-inline: 1rem;
+    color: hsl(var(--foreground));
+    outline: none;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease;
+  }
+
+  .input-base:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 4px rgba(255, 145, 0, 0.12);
+  }
+
+  .textarea-base {
+    width: 100%;
+    border: 1px solid hsl(var(--border));
+    border-radius: 0.75rem;
+    background: white;
+    padding: 0.75rem 1rem;
+    color: hsl(var(--foreground));
+    outline: none;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease;
+  }
+
+  .textarea-base:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 4px rgba(255, 145, 0, 0.12);
+  }
+}

@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  name          String
+  description   String
+  price         Int
+  category      String
+  imageUrl      String?
+  isAvailable   Boolean  @default(true)
+  isFeatured    Boolean  @default(false)
+  featuredOrder Int      @default(0)
+  createdAt     DateTime @default(now())
+}
+
+model Order {
+  id              String      @id @default(cuid())
+  orderNumber     String      @unique
+  customerName    String
+  phone           String
+  fulfillmentType String      @default("DELIVERY")
+  address         String?
+  comment         String?
+  totalAmount     Int
+  status          OrderStatus @default(NEW)
+  items           OrderItem[]
+  createdAt       DateTime    @default(now())
+}
+
+model OrderItem {
+  id            String @id @default(cuid())
+  orderId       String
+  nameSnapshot  String
+  priceSnapshot Int
+  quantity      Int
+  order         Order  @relation(fields: [orderId], references: [id])
+}
+
+enum OrderStatus {
+  NEW
+  CONFIRMED
+  PREPARING
+  DELIVERING
+  COMPLETED
+  CANCELLED
+}
