@@ -5,9 +5,6 @@ export async function POST(req: Request) {
     const body = await req.json();
     const password = body.password;
 
-    console.log("ENV ADMIN_PASSWORD:", process.env.ADMIN_PASSWORD);
-    console.log("INPUT PASSWORD:", password);
-
     if (!password) {
       return new Response("Password is required", { status: 400 });
     }
