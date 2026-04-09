@@ -1,8 +1,15 @@
 import OrderStatusSelect from "@/components/admin/OrderStatusSelect";
 import { prisma } from "@/lib/prisma";
+import type { Prisma } from "@prisma/client";
+
+type OrderWithItems = Prisma.OrderGetPayload<{
+  include: {
+    items: true;
+  };
+}>;
 
 export default async function AdminOrdersPage() {
-  const orders = await prisma.order.findMany({
+  const orders: OrderWithItems[] = await prisma.order.findMany({
     include: {
       items: true,
     },
@@ -95,7 +102,9 @@ export default async function AdminOrdersPage() {
                 <div className="mt-4 grid gap-2 text-sm text-neutral-700 md:grid-cols-2">
                   <div>
                     <span className="text-neutral-500">Адрес:</span>{" "}
-                    {order.fulfillmentType === "PICKUP" ? "Самовывоз" : order.address || "—"}
+                    {order.fulfillmentType === "PICKUP"
+                      ? "Самовывоз"
+                      : order.address || "—"}
                   </div>
 
                   <div>
