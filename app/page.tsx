@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import PopularPreviewTabs from "@/components/home/PopularPreviewTabs";
 import { prisma } from "@/lib/prisma";

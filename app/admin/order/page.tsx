@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import Button from "@/components/shared/Button";
 import { getCart, getCartTotal, clearCart } from "@/lib/cart";
-import { businessInfo } from "@/lib/business";
+import { businessInfo } from "@/lib/business"; 
 
 type CartItem = {
   id: string;
@@ -75,8 +73,7 @@ export default function OrderPage() {
 
   return (
     <>
-      <Header />
-
+ 
       <main className="mx-auto max-w-5xl px-4 py-10 md:px-6">
         <h1 className="text-3xl font-semibold">Оформление заказа</h1>
 
@@ -188,8 +185,6 @@ export default function OrderPage() {
           </div>
         )}
       </main>
-
-      <Footer />
     </>
   );
 }

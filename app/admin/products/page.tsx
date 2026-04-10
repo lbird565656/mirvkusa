@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import ProductManager from "@/components/admin/ProductManager";
 import { prisma } from "@/lib/prisma";
 

@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import SectionTitle from "@/components/shared/SectionTitle";
 import MenuCatalog from "@/components/store/MenuCatalog";
 import { prisma } from "@/lib/prisma";

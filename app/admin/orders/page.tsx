@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import OrderStatusSelect from "@/components/admin/OrderStatusSelect";
 import { prisma } from "@/lib/prisma";
 import type { Order, OrderItem, OrderStatus } from "@prisma/client";
